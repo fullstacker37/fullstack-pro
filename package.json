@@ -1,0 +1,29 @@
+{
+  "name": "fullstack-pro",
+  "version": "1.0.0",
+  "description": "记录学习过程中的项目（vue、react、微信小程序、微信公众号、node）和知识点",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullstacker37/fullstack-pro.git"
+  },
+  "keywords": [
+    "fullstack",
+    "vue",
+    "react",
+    "miniprogram",
+    "node.js"
+  ],
+  "author": "https://github.com/fullstacker37",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fullstacker37/fullstack-pro/issues"
+  },
+  "homepage": "https://github.com/fullstacker37/fullstack-pro#readme"
+}
