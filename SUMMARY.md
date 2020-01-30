@@ -7,6 +7,8 @@
 * [JavaScript](doc/JavaScript/README.md)
     * [高阶函数](doc/JavaScript/1.高阶函数.md)
     * [ES5重写startsWith和endsWith](doc/JavaScript/2.ES5重写startsWith和endsWith.md)
+    * [继承](doc/JavaScript/3.继承.md)
+    * [toString](doc/JavaScript/4.toString.md)
 * [Linux相关](doc/Linux/README.md)
     * [Linux常见命令](doc/Linux/1.Linux常见命令.md)
 
