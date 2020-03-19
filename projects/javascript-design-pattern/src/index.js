@@ -8,4 +8,3 @@ class Person {
 }
 
 const p = new Person('xiaoming');
-alert(p.getName());
