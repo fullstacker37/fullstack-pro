@@ -2,8 +2,11 @@
 
 * [项目介绍](README.md)
 * [设计模式](doc/design-patterns/README.md)
-    * [创建对象的安全模式](doc/design-patterns/1.创建对象的安全模式.md)
+    * [创建对象的安全模式](doc/design-patterns/创建对象的安全模式.md)
+    * [简单工厂模式](doc/design-patterns/简单工厂模式.md)
 * [面试相关](doc/interview/README.md)
+    * [设计模式面试题-1](doc/interview/设计模式面试题-1.md)
+    * [设计模式面试题-2](doc/interview/设计模式面试题-2.md)
 * [JavaScript](doc/JavaScript/README.md)
     * [高阶函数](doc/JavaScript/1.高阶函数.md)
     * [ES5重写startsWith和endsWith](doc/JavaScript/2.ES5重写startsWith和endsWith.md)
