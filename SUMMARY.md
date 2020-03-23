@@ -4,6 +4,8 @@
 * [设计模式](doc/design-patterns/README.md)
     * [创建对象的安全模式](doc/design-patterns/创建对象的安全模式.md)
     * [简单工厂模式](doc/design-patterns/简单工厂模式.md)
+    * [工厂模式](doc/design-patterns/工厂模式.md)
+    * [抽象工厂模式](doc/design-patterns/抽象工厂模式.md)
 * [面试相关](doc/interview/README.md)
     * [设计模式面试题-1](doc/interview/设计模式面试题-1.md)
     * [设计模式面试题-2](doc/interview/设计模式面试题-2.md)
