@@ -1,38 +1,49 @@
-var Factory = function (type, content) {
-    if (this instanceof Factory) {
-        return this[type](content);
-    } else {
-        return new Factory(type, content);
+class Bank {
+  constructor() {
+    if (new.target === Bank) throw new Error("抽象类不能直接实例化!");
+  }
+  createBankCard() {
+    throw new Error("抽象工厂类不允许直接调用，请重写实现!");
+  }
+  saveMoney() {
+    throw new Error("抽象工厂类不允许直接调用，请重写实现!");
+  }
+}
+new Bank();
+
+class Icbc extends Bank {
+  createBankCard(type) {
+    switch (type) {
+      case "debit":
+        return new DebitCard();
+      case "credit":
+        return new CreditCard();
+      default:
+        throw new Error("暂时没有这个产品!");
     }
+  }
 }
 
-Factory.prototype = {
-    yuwen: function (content) {
-        console.log(content);
-    },
-    shuxue: function(content) {
-        console.log(content);
-    },
-    english: function(content) {
-        console.log(content);
-    }
+class Card {
+  buy() {
+    throw new Error("抽象产品方法不允许直接调用，请重新实现！");
+  }
+  transfer() {
+    throw new Error("抽象产品方法不允许直接调用，请重新实现！");
+  }
 }
 
-var data = [
-    {
-        type: 'yuwen',
-        content: '我是语文老师!'
-    },
-    {
-        type: 'shuxue',
-        content: '我是数学老师!'
-    },
-    {
-        type: 'english',
-        content: '我是英语老师!'
-    }
-];
-
-for (var i = 0; i < data.length; i++) {
-    Factory(data[i].type, data[i].content);
+class DebitCard extends Card {
+  buy() {
+    console.log("您可以使用工行借记卡进行消费了！");
+  }
 }
+
+class CreditCard extends Card {
+  buy() {
+    console.log("您可以使用工行信用卡进行消费了！");
+  }
+}
+const myBank = new Icbc();
+const myCard = myBank.createBankCard();
+myCard.buy();
