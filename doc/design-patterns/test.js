@@ -1,49 +1,20 @@
-class Bank {
-  constructor() {
-    if (new.target === Bank) throw new Error("抽象类不能直接实例化!");
-  }
-  createBankCard() {
-    throw new Error("抽象工厂类不允许直接调用，请重写实现!");
-  }
-  saveMoney() {
-    throw new Error("抽象工厂类不允许直接调用，请重写实现!");
+class Man {
+  callWife() {
+    console.log('已经给您的老婆小丽打电话');
   }
 }
-new Bank();
 
-class Icbc extends Bank {
-  createBankCard(type) {
-    switch (type) {
-      case "debit":
-        return new DebitCard();
-      case "credit":
-        return new CreditCard();
-      default:
-        throw new Error("暂时没有这个产品!");
+Man.getInstance = (function() {
+  let instance = null;
+  return function() {
+    if(!instance) {
+      instance = new Man();
     }
+    return instance;
   }
-}
+})();
 
-class Card {
-  buy() {
-    throw new Error("抽象产品方法不允许直接调用，请重新实现！");
-  }
-  transfer() {
-    throw new Error("抽象产品方法不允许直接调用，请重新实现！");
-  }
-}
+const man1 = Man.getInstance();
+const man2 = Man.getInstance();
 
-class DebitCard extends Card {
-  buy() {
-    console.log("您可以使用工行借记卡进行消费了！");
-  }
-}
-
-class CreditCard extends Card {
-  buy() {
-    console.log("您可以使用工行信用卡进行消费了！");
-  }
-}
-const myBank = new Icbc();
-const myCard = myBank.createBankCard();
-myCard.buy();
+console.log(man1 === man2); // true
