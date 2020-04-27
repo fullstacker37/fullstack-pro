@@ -1,12 +1,14 @@
-function Person() {}
-var friend = new Person();
-Person.prototype = {
-  constructor: Person,
-  name: "ming",
-  age: 22,
-  job: "code",
-  sayName: function () {
-    console.log(this.name);
-  },
-};
-friend.sayName(); // TypeError: friend.sayName is not a function
+function SpecialArray() {
+  // 创建数组对象
+  var values = new Array();
+  // 添加值
+  values.push.apply(values, arguments);
+  // 添加方法
+  values.toPipedString = function () {
+    return this.join("|");
+  };
+  // 返回数组
+  return values;
+}
+var colors = new SpecialArray("red", "blue", "green");
+console.log(colors.toPipedString()); // red|blue|green

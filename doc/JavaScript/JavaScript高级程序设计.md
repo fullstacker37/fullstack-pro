@@ -80,3 +80,45 @@ friend.sayName(); // TypeError: friend.sayName is not a function
 
 ![重写原型前后对比图](./update_prototype.png)
 从图中可以看出，重写原型对象切断了现有原型与任何之前已经存在的对象实例之间的联系，它们引用的仍然是最初的原型。
+
+### 动态原型模式
+
+有其他 OO 语言经验的开发人员在看到独立的构造函数和原型时，很可能感到非常困惑。动态原型模式正是致力于解决这个问题的一个方案，它把所有信息都封装在了构造函数中，而通过在构造函数中初始化原型（仅在必要的情况下），又保持了同时使用构造函数和原型的优点。换句话说，可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型。
+
+```javascript
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  if (typeof this.sayName !== "function") {
+    Person.prototype.sayName = function () {
+      console.log(this.name);
+    };
+  }
+}
+var friend = new Person("ming", 22, "software engineer");
+friend.sayName();
+```
+
+### 寄生构造函数模式
+
+这种模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后在返回新创建的对象；但从表面上看，这个函数又很像是典型的构造函数。这个模式可以在特殊的情况下用来为对象创建构造函数。假设我们想创建一个具有额外方法的特殊数组。由于不能直接修改 Array 构造函数，因此可以使用这个模式。
+
+```javascript
+function SpecialArray() {
+  // 创建数组对象
+  var values = new Array();
+  // 添加值
+  values.push.apply(values, arguments);
+  // 添加方法
+  values.toPipedString = function () {
+    return this.join("|");
+  };
+  // 返回数组
+  return values;
+}
+var colors = new SpecialArray("red", "blue", "green");
+console.log(colors.toPipedString()); // red|blue|green
+```
+
+关于寄生构造函数模式，有一点需要说明：返回的对象与构造函数或者与构造函数的原型属性之间没有关系。为此，不能依赖 instanceof 操作符来确定对象类型。由于存在上述问题，我们建议在可以使用其他模式的情况下，不要使用这种模式。
