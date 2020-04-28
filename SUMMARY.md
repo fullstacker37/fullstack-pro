@@ -17,5 +17,6 @@
   - [ES5 重写 startsWith 和 endsWith](doc/JavaScript/2.ES5重写startsWith和endsWith.md)
   - [继承](doc/JavaScript/3.继承.md)
   - [toString](doc/JavaScript/4.toString.md)
+  - [JavaScript 高程三笔记](doc/JavaScript/JavaScript高级程序设计.md)
 - [Linux 相关](doc/Linux/README.md)
   - [Linux 常见命令](doc/Linux/1.Linux常见命令.md)
